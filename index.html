@@ -1,16 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Snake</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bal 💛</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="canvas"></canvas>
-  <script src="render.js"></script><!-- defines canvas, ctx, draw() -->
-  <script src="input.js"></script><!-- attaches keyboard + touch listeners -->
-  <script src="game.js"></script> <!-- state, loop, boot -->
 
+<div class="float" style="left:8%;animation-delay:0s">🐱</div>
+<div class="float" style="left:26%;animation-delay:2s">🐾</div>
+<div class="float" style="left:48%;animation-delay:4s">🐱</div>
+<div class="float" style="left:70%;animation-delay:1s">🐾</div>
+<div class="float" style="left:88%;animation-delay:3s">🐱</div>
+
+<section class="page active" id="page1">
+  <div class="paw" style="top:10%;left:10%">🐾</div>
+  <div class="paw" style="bottom:12%;right:10%">🐾</div>
+  <div class="card">
+    <div class="cat">🐱💛</div>
+    <div class="heart">💛</div>
+    <h1>Hi, Bal! 🥺</h1>
+    <p>May isang maliit na bagay akong gustong itanong sa'yo...</p>
+    <p><b>Ready ka na ba?</b> 😚</p>
+    <button class="nav" onclick="showPage(2)">Open mo muna 💌</button>
+    <div class="dots">1 / 4</div>
+  </div>
+</section>
+
+<section class="page" id="page2">
+  <div class="card">
+    <div class="cat">🐱💛</div>
+    <h2>Para sa'yo, Bal</h2>
+    <p>
+      Sa dami ng taong puwedeng makilala, ikaw yung taong gusto kong
+      makasama sa mga simpleng araw, sa tawanan, sa lambingan, at kahit
+      sa mga araw na hindi tayo okay.
+    </p>
+    <p>
+      Hindi naman kailangan maging perfect ang lahat. Ang gusto ko lang,
+      kapag may problema, piliin pa rin nating mag-usap, umintindi,
+      at ayusin kung ano man ang kailangang ayusin. 🥺
+    </p>
+    <p><b>Kaya may itatanong ako sa'yo...</b> 💛</p>
+    <button class="nav" onclick="showPage(3)">Next 💌</button>
+    <div class="dots">2 / 4</div>
+  </div>
+</section>
+
+<section class="page" id="page3">
+  <div class="card">
+    <div class="heart">🥰</div>
+    <div class="cat-small">🐱🐾</div>
+    <h2>Why You, Bal?</h2>
+    <div class="reasons">
+      <div>💛 Dahil napapangiti mo ako kahit simpleng bagay lang.</div>
+      <div>🫶 Dahil gusto kong maging safe place mo rin ako.</div>
+      <div>🌼 Dahil gusto kong kasama ka sa mga ordinaryong araw.</div>
+      <div>✨ Dahil ikaw yung taong gusto kong piliin ulit at ulit.</div>
+      <div>🤍 Dahil mas gusto kong ayusin kaysa basta sumuko.</div>
+    </div>
+    <p>
+      Hindi ko alam kung ano ang mangyayari sa bawat araw na darating,
+      pero gusto kong gumawa pa tayo ng maraming magagandang moments.
+    </p>
+    <button class="nav" onclick="showPage(4)">One last page 💛</button>
+    <div class="dots">3 / 4</div>
+  </div>
+</section>
+
+<section class="page" id="page4">
+  <div class="card">
+    <div class="cat">🐱💛</div>
+    <div class="heart">💛</div>
+    <h2>So, Bal... 🥺</h2>
+    <p>
+      Thank you sa lahat ng lambing, pag-intindi, tawanan, kwento,
+      memories, at sa bawat maliit na bagay na naging parte ng journey natin.
+      Kahit LDR tayo, sinisikap pa rin nating hanapan ng paraan na maramdaman
+      ng isa't isa na nandiyan pa rin tayo. 🥺💛
+    </p>
+    <p>
+      Alam ko hindi naman palaging okay. Madalas at minsan nag-aaway tayo,
+      napapagod, nasasaktan, at may mga pagkakataon na nauuwi pa tayo sa
+      paghihiwalay. Pero ayokong magpanggap na magiging perfect tayo o
+      wala na tayong pagdadaanan. Ang gusto ko lang ay kapag pareho na tayong
+      kalmado, subukan nating mag-usap, umintindi, at piliin kung ano ang
+      makakabuti para sa ating dalawa. 🫶
+    </p>
+    <p>
+      Sa kabila ng distance at lahat ng pinagdaanan natin, gusto ko pa ring
+      magkaroon tayo ng mas maraming tawanan, lambingan, at moments na
+      masasabi nating <i>"Buti hindi natin hinayaang mawala lahat."</i> 💛
+    </p>
+    <p><b>Will you stay and make more moments with me, Bal? 🐱💛</b></p>
+
+    <div class="actions">
+      <button class="yes" onclick="yesClicked()">YES 💛</button>
+      <button class="no" id="noBtn"
+        onpointerdown="escapeNo(event)"
+        onmouseenter="escapeNo(event)"
+        onclick="escapeNo(event)"
+        onkeydown="escapeNo(event)">NO 😝</button>
+    </div>
+
+    <div id="answer" style="display:none" class="note">
+      <div class="cat-small">🐱💛</div>
+      <h2>Yeeey! 🥹💛</h2>
+      <p>
+        Thank you, Bal! Mwah mwah 😘😘😘<br>
+        More moments, more lambing, more tawanan,
+        and more memories with you. 💛
+      </p>
+      <div class="signature">
+        Always cheering for you, Bal. 💛<br>
+        <span>Artemio, mong nagmamahal 💛🐱</span>
+      </div>
+    </div>
+
+    <div class="dots">4 / 4</div>
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
