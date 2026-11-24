@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employee Attendance System</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+ <h2>📋 Attendance System</h2>
+ <p>Employee Attendance Monitoring Dashboard</p>
+</header>
+
+<div class="container">
+
+ <div class="stats">
+  <div class="card">
+   <small>Total Employees</small>
+   <div class="stat blue" id="total">0</div>
+  </div>
+
+  <div class="card">
+   <small>Time In Today</small>
+   <div class="stat green" id="present">0</div>
+  </div>
+
+  <div class="card">
+   <small>Time Out Today</small>
+   <div class="stat orange" id="out">0</div>
+  </div>
+
+  <div class="card">
+   <small>Not Yet Out</small>
+   <div class="stat red" id="pending">0</div>
+  </div>
+ </div>
+
+ <div class="card">
+  <h3>➕ Register Employee</h3>
+  <input id="empid" placeholder="Employee ID">
+  <input id="empname" placeholder="Employee Name">
+  <button onclick="addEmployee()">Add Employee</button>
+ </div>
+
+ <div class="card">
+  <h3>🕘 Manual Time In (Admin)</h3>
+  <select id="inEmployee"></select>
+  <button class="greenbtn" onclick="timeIn()">Record Time In</button>
+ </div>
+
+ <div class="card">
+  <h3>🔳 Employee QR Code</h3>
+  <select id="qrEmployee" onchange="makeQR()"></select>
+  <div id="qrcode"></div>
+  <p class="note">I-print o i-save ang QR code ng employee. Gagamitin ito sa pag-time out.</p>
+ </div>
+
+ <div class="card">
+  <h3>📷 QR Scanner (Time Out)</h3>
+  <div id="reader"></div>
+  <button class="darkbtn" onclick="startScanner()">Start QR Scanner</button>
+  <button onclick="stopScanner()">Stop Scanner</button>
+  <p class="note">Payagan ang camera access kapag tinanong ng browser.</p>
+  <p id="scanmessage"></p>
+ </div>
+
+ <div class="card">
+  <h3>👥 Employee List</h3>
+  <div id="employees"></div>
+ </div>
+
+ <div class="card">
+  <h3>📊 Today's Attendance</h3>
+  <div style="overflow-x:auto">
+   <table>
+    <thead>
+     <tr>
+      <th>Employee</th>
+      <th>Time In</th>
+      <th>Time Out</th>
+     </tr>
+    </thead>
+    <tbody id="records"></tbody>
+   </table>
+  </div>
+ </div>
+
+ <p class="note">
+  Prototype version. Data is saved only in this browser on this device.
+  For a shared company system, we will add a PHP and MySQL database later.
+ </p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
